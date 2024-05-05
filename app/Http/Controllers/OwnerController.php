@@ -40,8 +40,8 @@ class OwnerController extends Controller
     
         $item = new Item();
         $item->name = $request->name;
-        $item->address = $request->address;
-        $item->mobile = $request->mobile;
+        $item->quantity = $request->quantity;
+        $item->price = $request->price;
 
         $item->save();
 
