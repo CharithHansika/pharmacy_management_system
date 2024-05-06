@@ -34,6 +34,22 @@ Route::get('owner/add-item', [OwnerController::class, 'addItem'])->middleware(['
 Route::post('owner/addCustomerSubmit', [OwnerController::class, 'submitaddCustomer'])->middleware(['auth','owner'])->name('SubmitAddCustomer');
 Route::post('owner/addItemSubmit', [OwnerController::class, 'submitaddItem'])->middleware(['auth','owner'])->name('SubmitAddItem');
 
-Route::get('owner/show-customer', [ManagerController::class, 'showCustomer'])->middleware(['auth','manager'])->name('show-customer');
 
-Route::get('owner/show-item', [CashierController::class, 'showItem'])->middleware(['auth','cashier'])->name('show-item');
+Route::get('manager/dashboard', [ManagerController::class, 'showCustomerDetails'])->name('customer.details');
+
+Route::get('cashier/dashboard', [CashierController::class, 'showItemDetails'])->name('item.details');
+Route::get('cashier/dashboard/{id}/edit', [CashierController::class, 'editItemDetails'])->name('item.edit');
+Route::put('cashier/dashboard/{id}', [CashierController::class, 'updateItemDetails'])->name('item.update');
+// web.php
+
+Route::delete('cashier/dashboard/{id}', [CashierController::class, 'deleteItem'])->name('item.delete');
+
+
+
+
+// Route::get('manager/dashboard/{id}', [ManagerController::class, 'showCustomerDetails'])->name('customer.details');
+Route::get('manager/dashboard/{id}/edit', [ManagerController::class, 'editCustomerDetails'])->name('customer.edit');
+Route::put('manager/dashboard/{id}', [ManagerController::class, 'updateCustomerDetails'])->name('customer.update');
+// web.php
+
+Route::delete('manager/dashboard/{id}', [ManagerController::class, 'deleteCustomer'])->name('customer.delete');

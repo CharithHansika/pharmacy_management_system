@@ -22,4 +22,6 @@ class manager
         }
         return $next($request);
     }
+
+    
 }
