@@ -43,7 +43,7 @@ class ManagerController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
-            'mobile' => 'required|string|max:20',
+            'mobile' => 'required|string|max:10',
             // Add more validation rules for other fields if needed
         ]);
 
